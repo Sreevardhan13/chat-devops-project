@@ -5,7 +5,7 @@ pipeline {
 
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/sreevardhan13/chat-devops-project.git'
+                git 'https://github.com/Sreevardhan13/chat-devops-project'
             }
         }
 
@@ -17,16 +17,15 @@ pipeline {
 
         stage('Tag Image') {
             steps {
-                sh 'docker tag chat-app sreevardhan132/chat-app'
+                sh 'docker tag chat-app Sreevardhan13/chat-devops-project'
             }
         }
 
         stage('Push to DockerHub') {
             steps {
-                sh 'docker push sreevardhan132/chat-app'
+                sh 'docker push Sreevardhan13/chat-devops-project'
             }
         }
-
         stage('Deploy with Terraform') {
             steps {
                 sh '''
