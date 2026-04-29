@@ -15,11 +15,16 @@ pipeline {
             }
         }
 
-        stage('Push to DockerHub') {
-            steps {
-                sh 'docker push sreevardhan132/chat-app'
-            }
+stage('Push to DockerHub') {
+    steps {
+        withCredentials([usernamePassword(credentialsId: 'docker-creds', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+            sh '''
+            echo $PASS | docker login -u $USER --password-stdin
+            docker push Sreevardhan13/chat-devops-project
+            '''
         }
+    }
+}
 
         stage('Deploy with Terraform') {
             steps {
