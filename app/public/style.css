@@ -1,35 +1,32 @@
 body {
     font-family: Arial;
-    background: #f4f4f4;
-    display: flex;
-    justify-content: center;
+    background: #f0f0f0;
+    text-align: center;
 }
 
-.chat-container {
-    width: 400px;
+.container, .chat-container {
     background: white;
     padding: 20px;
-    margin-top: 50px;
+    margin: 50px auto;
+    width: 300px;
     border-radius: 10px;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-    height: 200px;
-    overflow-y: scroll;
-}
-
-li {
-    padding: 5px;
-    border-bottom: 1px solid #ddd;
-}
-
 input {
+    width: 90%;
     padding: 10px;
-    width: 70%;
+    margin: 5px;
 }
 
 button {
     padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    height: 200px;
+    overflow-y: scroll;
+    text-align: left;
 }
