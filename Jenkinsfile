@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t chat-app .'
+                sh 'docker build --no-cache -t chat-app .'
             }
         }
 
