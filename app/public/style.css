@@ -1,32 +1,79 @@
 body {
-    font-family: Arial;
-    background: #f0f0f0;
-    text-align: center;
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: #ece5dd;
 }
 
-.container, .chat-container {
-    background: white;
-    padding: 20px;
-    margin: 50px auto;
-    width: 300px;
+/* Header */
+.header {
+    background: #075e54;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Chat container */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+}
+
+/* Messages area */
+ul {
+    flex: 1;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    overflow-y: auto;
+}
+
+/* Chat bubble base */
+li {
+    max-width: 60%;
+    padding: 10px 15px;
+    margin: 8px;
     border-radius: 10px;
+    font-size: 15px;
+    word-wrap: break-word;
+}
+
+/* Other users */
+.other {
+    background: white;
+    align-self: flex-start;
+}
+
+/* My messages */
+.me {
+    background: #dcf8c6;
+    align-self: flex-end;
+}
+
+/* Input bar */
+.input-container {
+    display: flex;
+    padding: 10px;
+    background: #f0f0f0;
 }
 
 input {
-    width: 90%;
-    padding: 10px;
-    margin: 5px;
+    flex: 1;
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 16px;
 }
 
+/* Send button */
 button {
-    padding: 10px;
-    margin: 5px;
+    margin-left: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 50%;
+    background: #075e54;
+    color: white;
     cursor: pointer;
-}
-
-ul {
-    list-style: none;
-    height: 200px;
-    overflow-y: scroll;
-    text-align: left;
 }

@@ -6,15 +6,15 @@
 </head>
 <body>
 
-<div class="chat-container">
-    <h2>Chat App</h2>
+<div class="header">💬 Chat App</div>
 
+<div class="chat-container">
     <ul id="messages"></ul>
 
-    <input id="msg" placeholder="Type message">
-    <button onclick="sendMessage()">Send</button>
-
-    <button onclick="logout()">Logout</button>
+    <div class="input-container">
+        <input id="messageInput" placeholder="Type a message..." />
+        <button onclick="sendMessage()">➤</button>
+    </div>
 </div>
 
 <script src="/socket.io/socket.io.js"></script>

@@ -17,7 +17,7 @@ socket.on("chat message", (data) => {
 });
 
 function sendMessage() {
-    const input = document.getElementById("msg");
+    const input = document.getElementById("messageInput");
     socket.emit("chat message", input.value);
     input.value = "";
 }
