@@ -13,7 +13,7 @@ function login() {
             localStorage.setItem("token", data.token);
             window.location.href = "chat.html";
         } else {
-            alert("Login failed");
+            alert("Login failed ❌");
         }
     });
 }
@@ -27,5 +27,5 @@ function register() {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({ username, password })
     })
-    .then(() => alert("Registered successfully"));
+    .then(() => alert("Registered successfully ✅"));
 }
