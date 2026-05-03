@@ -9,23 +9,24 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
-// 🔥 IMPORTANT: Parse JSON body
+// ✅ Parse JSON
 app.use(express.json());
 
-// Serve frontend
-const publicPath = path.join(__dirname, "public");
+// ✅ Absolute path to public folder (robust)
+const publicPath = path.resolve(__dirname, "public");
 console.log("Serving static files from:", publicPath);
 
-app.use(express.static(publicPath));
+// ✅ Serve static files
+app.use("/", express.static(publicPath));
 
+// ✅ DEBUG: verify CSS access
 app.get("/login.css", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "login.css"));
+    res.sendFile(path.join(publicPath, "login.css"));
 });
 
-// Temporary user store
-const users = [];
+// ================= AUTH =================
 
-// ================= AUTH ROUTES =================
+const users = [];
 
 // Register
 app.post("/register", async (req, res) => {
@@ -70,7 +71,7 @@ io.use((socket, next) => {
     }
 });
 
-// ================= SOCKET LOGIC =================
+// ================= SOCKET =================
 
 io.on("connection", (socket) => {
     console.log("User connected:", socket.user.username);
@@ -87,7 +88,7 @@ io.on("connection", (socket) => {
     });
 });
 
-// ================= SERVER =================
+// ================= START SERVER =================
 
 const PORT = 3000;
 server.listen(PORT, "0.0.0.0", () => {
