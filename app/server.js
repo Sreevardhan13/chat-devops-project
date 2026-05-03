@@ -18,7 +18,7 @@ console.log("Serving static files from:", publicPath);
 
 app.use(express.static(publicPath));
 
-app.get("/test", (req, res) => {
+app.get("/login.css", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "login.css"));
 });
 
