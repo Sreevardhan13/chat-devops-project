@@ -13,7 +13,14 @@ const io = new Server(server);
 app.use(express.json());
 
 // Serve frontend
-app.use(express.static(path.join(__dirname, "public")));
+const publicPath = path.join(__dirname, "public");
+console.log("Serving static files from:", publicPath);
+
+app.use(express.static(publicPath));
+
+app.get("/test", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "login.css"));
+});
 
 // Temporary user store
 const users = [];
