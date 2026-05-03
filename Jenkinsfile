@@ -25,15 +25,14 @@ pipeline {
             }
         }
 
-        stage('Deploy with Terraform') {
+        stage('Deploy') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'aws-creds', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
-                    sh '''
-                    cd terraform
-                    terraform init
-                    terraform apply -auto-approve
-                    '''
-                }
+                sh '''
+                docker stop $(docker ps -q --filter ancestor=sreevardhan132/chat-app) || true
+                docker rm $(docker ps -aq --filter ancestor=sreevardhan132/chat-app) || true
+                docker pull sreevardhan132/chat-app:latest
+                docker run -d -p 3000:3000 sreevardhan132/chat-app:latest
+                '''
             }
         }
     }
