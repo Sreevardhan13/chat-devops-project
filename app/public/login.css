@@ -42,7 +42,7 @@ body {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Focus effect */
+/* FIXED focus */
 .login-container input:focus,
 .login-box input:focus {
     border-color: #25D366;
@@ -60,7 +60,6 @@ body {
     border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
-    color: white;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -68,25 +67,21 @@ body {
 .login-container button:first-of-type,
 .login-box button:first-of-type {
     background: #25D366;
+    color: white;
 }
 
 /* Register button */
 .login-container button:last-of-type,
 .login-box button:last-of-type {
     background: #128C7E;
+    color: white;
 }
 
-/* Hover effects */
+/* Hover */
 .login-container button:hover,
 .login-box button:hover {
     transform: scale(1.04);
     opacity: 0.95;
-}
-
-/* Click effect */
-.login-container button:active,
-.login-box button:active {
-    transform: scale(0.98);
 }
 
 /* ===== ANIMATION ===== */
