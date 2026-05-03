@@ -14,14 +14,19 @@ app.use(express.json());
 
 // ✅ Absolute path to public folder (robust)
 const publicPath = path.resolve(__dirname, "public");
+
 console.log("Serving static files from:", publicPath);
 
-// ✅ Serve static files
-app.use("/", express.static(publicPath));
+// ✅ Serve ALL static files explicitly
+app.use(express.static(publicPath));
 
-// ✅ DEBUG: verify CSS access
-app.get("/login.css", (req, res) => {
+// ✅ DEBUG route (critical)
+app.get("/debug", (req, res) => {
     res.sendFile(path.join(publicPath, "login.css"));
+});
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(publicPath, "index.html"));
 });
 
 // ================= AUTH =================
