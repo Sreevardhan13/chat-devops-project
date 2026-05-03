@@ -1,3 +1,4 @@
+/* ===== GLOBAL STYLES ===== */
 body {
     margin: 0;
     font-family: "Segoe UI", sans-serif;
@@ -8,32 +9,50 @@ body {
     height: 100vh;
 }
 
-/* Login box */
-.login-container {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    width: 320px;
+/* ===== LOGIN CONTAINER ===== */
+.login-container,
+.login-box {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 18px;
+    width: 340px;
     text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    animation: fadeIn 0.6s ease-in-out;
 }
 
-h2 {
+/* ===== HEADING ===== */
+.login-container h2,
+.login-box h2 {
     margin-bottom: 20px;
+    font-weight: 600;
+    color: #075e54;
 }
 
-/* Inputs */
-input {
+/* ===== INPUT FIELDS ===== */
+.login-container input,
+.login-box input {
+    box-sizing: border-box;
     width: 100%;
     padding: 12px;
-    margin: 10px 0;
+    margin: 12px 0;
     border-radius: 10px;
     border: 1px solid #ccc;
     font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Buttons */
-button {
+/* Focus effect */
+.login-container input:focus,
+.login-box input:focus {
+    border-color: #25D366;
+    outline: none;
+    box-shadow: 0 0 6px rgba(37, 211, 102, 0.5);
+}
+
+/* ===== BUTTONS ===== */
+.login-container button,
+.login-box button {
     width: 100%;
     padding: 12px;
     margin-top: 10px;
@@ -41,20 +60,44 @@ button {
     border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
+    color: white;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 /* Login button */
-button:first-of-type {
+.login-container button:first-of-type,
+.login-box button:first-of-type {
     background: #25D366;
-    color: white;
 }
 
 /* Register button */
-button:last-of-type {
+.login-container button:last-of-type,
+.login-box button:last-of-type {
     background: #128C7E;
-    color: white;
 }
 
-button:hover {
-    opacity: 0.9;
+/* Hover effects */
+.login-container button:hover,
+.login-box button:hover {
+    transform: scale(1.04);
+    opacity: 0.95;
+}
+
+/* Click effect */
+.login-container button:active,
+.login-box button:active {
+    transform: scale(0.98);
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
