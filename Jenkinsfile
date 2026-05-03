@@ -28,7 +28,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                CONTAINER_ID=$(docker ps -q --filter ancestor=sreevardhan132/chat-app)
+                # Stop ANY container using port 3000
+                CONTAINER_ID=$(docker ps -q --filter publish=3000)
 
                 if [ ! -z "$CONTAINER_ID" ]; then
                     docker stop $CONTAINER_ID
