@@ -28,8 +28,13 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                docker stop $(docker ps -q --filter ancestor=sreevardhan132/chat-app) || true
-                docker rm $(docker ps -aq --filter ancestor=sreevardhan132/chat-app) || true
+                CONTAINER_ID=$(docker ps -q --filter ancestor=sreevardhan132/chat-app)
+
+                if [ ! -z "$CONTAINER_ID" ]; then
+                    docker stop $CONTAINER_ID
+                    docker rm $CONTAINER_ID
+                fi
+
                 docker pull sreevardhan132/chat-app:latest
                 docker run -d -p 3000:3000 sreevardhan132/chat-app:latest
                 '''
